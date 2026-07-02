@@ -1,23 +1,24 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import { BOOK_NOW_URL, NAV_LINKS, SITE } from "@/config/site";
+import { BOOK_NOW_URL, NAV_LINKS } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 /**
- * Fixed header: transparent over the hero, condensing to a translucent charcoal
- * bar on scroll (transform-based, not layout — PROJECT_RULES §3/§11). Mobile is a
- * full-height slide-in panel.
+ * Fixed header: transparent over the hero (the WHITE logo reads on the dark image),
+ * then a solid dark (charcoal) bar with a subtle shadow after ~80px so the white logo
+ * stays legible — the background never turns light. Mobile is a full-height slide-in panel.
  */
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 80);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -26,28 +27,28 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-hallery",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-hallery",
         scrolled
-          ? "bg-charcoal/95 py-3 shadow-[0_1px_0_var(--color-line)] backdrop-blur-md"
+          ? "bg-charcoal/95 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.28)] backdrop-blur-md"
           : "py-5",
       )}
     >
       <div className="mx-auto flex max-w-[75rem] items-center justify-between px-5 tablet:px-7">
-        <Link href="#home" onClick={() => setOpen(false)} className="flex items-center gap-3 text-cream">
-          <span
-            className={cn(
-              "grid place-items-center border border-gold font-serif text-gold transition-all duration-500 ease-hallery",
-              scrolled ? "size-9 text-sm" : "size-10 text-base",
-            )}
-          >
-            TH
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-serif text-xl tracking-wide">{SITE.name}</span>
-            <span className="mt-0.5 text-[0.6rem] uppercase tracking-[0.4em] text-gold">
-              {SITE.subName}
-            </span>
-          </span>
+        <Link
+          href="/"
+          onClick={() => setOpen(false)}
+          aria-label="The Hallery by Old Kent — home"
+          className="flex items-center"
+        >
+          {/* White logo — reads over the dark hero and the dark scrolled header. */}
+          <Image
+            src="/logo/hallery-white.png"
+            alt="The Hallery by Old Kent"
+            width={200}
+            height={141}
+            priority
+            className="h-9 w-auto object-contain tablet:h-12"
+          />
         </Link>
 
         <nav className="hidden items-center gap-9 tablet:flex" aria-label="Primary">

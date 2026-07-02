@@ -39,11 +39,11 @@ export function HeroHallery() {
       {/* Legibility overlay for future nav / headings */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/55 via-black/20 to-black/55"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/45"
       />
 
       {/* Logo — centered horizontally, upper third of the hero */}
-      <div className="absolute left-1/2 top-[8%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.28)_45%,transparent_72%)] px-8 py-4 md:top-[12%] md:px-12 md:py-6">
+      <div className="absolute left-1/2 top-[8%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.38)_0%,rgba(0,0,0,0.18)_45%,transparent_72%)] px-8 py-4 md:top-[12%] md:px-12 md:py-6">
         <motion.div
           // With reduced motion, `initial={false}` renders straight at the final state (no animation).
           initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
