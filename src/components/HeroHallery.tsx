@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -16,7 +15,6 @@ import { RoomReelCard } from "@/components/hero/RoomReelCard";
  */
 export function HeroHallery() {
   const prefersReducedMotion = useReducedMotion();
-  const [logoSrc, setLogoSrc] = useState("/hero/hallery-logo.svg");
 
   return (
     <section
@@ -41,11 +39,11 @@ export function HeroHallery() {
       {/* Legibility overlay for future nav / headings */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/25 via-black/10 to-black/40"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/55 via-black/20 to-black/55"
       />
 
       {/* Logo — centered horizontally, upper third of the hero */}
-      <div className="absolute left-1/2 top-[10%] -translate-x-1/2 md:top-[14%]">
+      <div className="absolute left-1/2 top-[8%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.28)_45%,transparent_72%)] px-8 py-4 md:top-[12%] md:px-12 md:py-6">
         <motion.div
           // With reduced motion, `initial={false}` renders straight at the final state (no animation).
           initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
@@ -55,16 +53,15 @@ export function HeroHallery() {
           }
         >
           <Image
-            src={logoSrc}
-            onError={() => setLogoSrc("/hero/hallery-logo.png")}
+            src="/hero/hallery-logo.png"
             alt="The Hallery by Old Kent"
             width={360}
-            height={260}
+            height={254}
             quality={90}
             priority
-            // Space is reserved via width/height (no layout shift); object-contain keeps the
-            // aspect ratio intact. Adjust width/height to your asset's true ratio for a tight fit.
-            className="h-auto w-[220px] object-contain md:w-[360px]"
+            // Real crest (cream, transparent). Space reserved via width/height (no layout shift);
+            // the drop-shadow keeps it legible over the photographic background.
+            className="h-auto w-[220px] object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] md:w-[360px]"
           />
         </motion.div>
       </div>
