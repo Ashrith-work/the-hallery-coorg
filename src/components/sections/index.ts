@@ -9,4 +9,3 @@ export { Accommodation } from "./accommodation";
 export { Experiences } from "./experiences";
 export { Gallery } from "./gallery";
 export { Testimonials } from "./testimonials";
-export { Booking } from "./booking";

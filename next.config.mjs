@@ -11,6 +11,9 @@ const nextConfig = {
   images: {
     // Prefer modern formats for the estate photography.
     formats: ["image/avif", "image/webp"],
+    // Allow first-party SVG (the Hallery logo) through the image optimizer, sandboxed.
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   // three.js / R3F ship untranspiled ESM in places; keep the graphics stack happy.
   transpilePackages: ["three"],
