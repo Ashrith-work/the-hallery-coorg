@@ -42,30 +42,6 @@ export function HeroHallery() {
         className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/45"
       />
 
-      {/* Logo — centered horizontally, upper third of the hero */}
-      <div className="absolute left-1/2 top-[8%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.38)_0%,rgba(0,0,0,0.18)_45%,transparent_72%)] px-8 py-4 md:top-[12%] md:px-12 md:py-6">
-        <motion.div
-          // With reduced motion, `initial={false}` renders straight at the final state (no animation).
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={
-            prefersReducedMotion ? { duration: 0 } : { duration: 1.1, ease: "easeOut", delay: 0.2 }
-          }
-        >
-          <Image
-            src="/hero/hallery-logo.png"
-            alt="The Hallery by Old Kent"
-            width={360}
-            height={254}
-            quality={90}
-            priority
-            // Real crest (cream, transparent). Space reserved via width/height (no layout shift);
-            // the drop-shadow keeps it legible over the photographic background.
-            className="h-auto w-[220px] object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] md:w-[360px]"
-          />
-        </motion.div>
-      </div>
-
       {/* Room-availability reel card (Step 2a): bottom-center on mobile, bottom-right on desktop */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-6 md:translate-x-0">
         <RoomReelCard />
