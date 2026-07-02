@@ -34,7 +34,7 @@ export function Accommodation() {
                 <ImageCarousel
                   images={roomImages(stay.slug, stay.name)}
                   aspect="aspect-[4/3]"
-                  autoplayMs={6000}
+                  autoplayMs={1800}
                   ariaLabel={`${stay.name} photos`}
                 />
               </Reveal>
