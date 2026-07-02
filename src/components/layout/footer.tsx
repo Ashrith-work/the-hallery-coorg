@@ -1,24 +1,83 @@
-import { SITE } from "@/config/site";
+import Link from "next/link";
 
-/**
- * Foundation footer shell. The full "Footer" section (WEBSITE_BLUEPRINT §12) —
- * columns, closing line, quiet motion — is composed during the section build.
- * TODO: expand to the blueprint footer.
- */
+import { NAV_LINKS, SITE } from "@/config/site";
+
+/** Section 12 — Footer. Quiet close: brand, promise, and practical detail. */
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-ink px-7 py-12 text-cream">
-      <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-4 text-center">
-        <div className="flex items-baseline gap-2">
-          <span className="font-serif text-xl">{SITE.name}</span>
-          <span className="text-[0.6rem] uppercase tracking-[0.4em] text-gold">{SITE.subName}</span>
+    <footer id="contact" className="bg-ink px-5 py-16 text-cream tablet:px-7">
+      <div className="mx-auto max-w-[75rem]">
+        <div className="grid gap-12 tablet:grid-cols-[1.3fr_1fr_1fr_1fr]">
+          <div>
+            <div className="flex items-baseline gap-2">
+              <span className="font-serif text-2xl">{SITE.name}</span>
+              <span className="text-[0.6rem] uppercase tracking-[0.4em] text-gold">
+                {SITE.subName}
+              </span>
+            </div>
+            <p className="mt-4 max-w-xs font-serif text-lg italic text-cream/70">{SITE.promise}</p>
+          </div>
+
+          <FooterCol title="Estate">
+            {SITE.location.street}
+            <br />
+            {SITE.location.locality}, {SITE.location.region}
+            <br />
+            {SITE.location.postalCode}, India
+          </FooterCol>
+
+          <FooterCol title="Reservations">
+            {SITE.contact.phones.map((phone) => (
+              <span key={phone} className="block">
+                <a
+                  href={`tel:${phone.replace(/\s/g, "")}`}
+                  className="transition-colors hover:text-gold"
+                >
+                  {phone}
+                </a>
+              </span>
+            ))}
+            <a
+              href={`mailto:${SITE.contact.email}`}
+              className="mt-1 block transition-colors hover:text-gold"
+            >
+              {SITE.contact.email}
+            </a>
+          </FooterCol>
+
+          <FooterCol title="Getting Here">
+            Near Madikeri town
+            <br />
+            Approx. 5–6 hrs from Bengaluru
+            <br />
+            Part of the Old Kent family of estates
+          </FooterCol>
         </div>
-        <p className="text-xs text-cream/45">
-          © {year} {SITE.name}, {SITE.subName}. All rights reserved.
-        </p>
+
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-line pt-6 text-[0.75rem] text-cream/45 tablet:flex-row">
+          <p>
+            © {year} {SITE.name}, {SITE.subName}. All rights reserved.
+          </p>
+          <nav className="flex gap-6" aria-label="Footer">
+            {NAV_LINKS.map((link) => (
+              <Link key={link.href} href={link.href} className="transition-colors hover:text-gold">
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
     </footer>
+  );
+}
+
+function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <h4 className="mb-3 font-sans text-[0.72rem] uppercase tracking-[0.2em] text-gold">{title}</h4>
+      <p className="text-sm leading-relaxed text-cream/70">{children}</p>
+    </div>
   );
 }
