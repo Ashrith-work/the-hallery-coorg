@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   THEME — Tailwind v4 tokens
+   Brand palette + type + easing + breakpoints (PROJECT_RULES §4/§5/§6/§13)
+   ============================================================ */
+@theme {
+  /* Brand palette */
+  --color-ink: #1a1712;
+  --color-ink-soft: #5b5348;
+  --color-charcoal: #211d18;
+  --color-surface-dark: #2a251e;
+  --color-gold: #c6a15b;
+  --color-gold-soft: #d9be86;
+  --color-gold-ink: #8a6a2c;
+  --color-cream: #f6f1e7;
+  --color-cream-dark: #ece3d2;
+  --color-paper: #fbf9f4;
+  --color-stone: #8b8175;
+  --color-danger: #b5504a;
+  --color-line: rgba(198, 161, 91, 0.28);
+
+  /* Typography (variables set by next/font in lib/fonts.ts) */
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-jost), "Segoe UI", sans-serif;
+
+  /* Signature easing (PROJECT_RULES §6) */
+  --ease-hallery: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Brand breakpoints: 560px phone, 900px tablet (PROJECT_RULES §13) */
+  --breakpoint-phone: 35rem;
+  --breakpoint-tablet: 56.25rem;
+}
+
+/* ============================================================
+   shadcn/ui semantic tokens — mapped onto the brand palette
+   Light = paper/ink (default). Dark = charcoal/cream (dark sections).
+   ============================================================ */
+:root {
+  --radius: 0.125rem; /* near-square corners (PROJECT_RULES §3) */
+  --background: #fbf9f4;
+  --foreground: #1a1712;
+  --card: #fbf9f4;
+  --card-foreground: #1a1712;
+  --popover: #fbf9f4;
+  --popover-foreground: #1a1712;
+  --primary: #c6a15b;
+  --primary-foreground: #1a1712;
+  --secondary: #ece3d2;
+  --secondary-foreground: #1a1712;
+  --muted: #ece3d2;
+  --muted-foreground: #8b8175;
+  --accent: #f6f1e7;
+  --accent-foreground: #1a1712;
+  --destructive: #b5504a;
+  --destructive-foreground: #f6f1e7;
+  --border: rgba(198, 161, 91, 0.28);
+  --input: rgba(198, 161, 91, 0.28);
+  --ring: #c6a15b;
+}
+
+.dark {
+  --background: #211d18;
+  --foreground: #f6f1e7;
+  --card: #2a251e;
+  --card-foreground: #f6f1e7;
+  --popover: #2a251e;
+  --popover-foreground: #f6f1e7;
+  --primary: #c6a15b;
+  --primary-foreground: #1a1712;
+  --secondary: #2a251e;
+  --secondary-foreground: #f6f1e7;
+  --muted: #2a251e;
+  --muted-foreground: #8b8175;
+  --accent: #2a251e;
+  --accent-foreground: #f6f1e7;
+  --destructive: #b5504a;
+  --destructive-foreground: #f6f1e7;
+  --border: rgba(198, 161, 91, 0.28);
+  --input: rgba(198, 161, 91, 0.28);
+  --ring: #c6a15b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION (PROJECT_RULES §10) — first-class
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "the-hallery",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The Hallery — heritage coffee estate in Coorg. Cinematic luxury landing page.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "gsap": "^3.12.5",
+    "framer-motion": "^11.15.0",
+    "lenis": "^1.1.18",
+    "three": "^0.171.0",
+    "@react-three/fiber": "^9.0.0",
+    "@react-three/drei": "^9.120.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.6.0",
+    "lucide-react": "^0.469.0",
+    "@radix-ui/react-slot": "^1.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.171.0",
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/postcss": "^4.0.0",
+    "postcss": "^8.4.49",
+    "tw-animate-css": "^1.2.0",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^15.1.0",
+    "@eslint/eslintrc": "^3.2.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9"
+  }
+}
