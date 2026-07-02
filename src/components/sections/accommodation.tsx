@@ -5,6 +5,7 @@ import { Eyebrow } from "@/components/common/eyebrow";
 import { Reveal } from "@/components/common/reveal";
 import { Button } from "@/components/ui/button";
 import { STAYS } from "@/config/content";
+import { BOOK_NOW_URL } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -63,7 +64,9 @@ export function Accommodation() {
                     Rates on request
                   </span>
                   <Button asChild variant="ghost" size="sm">
-                    <a href="#booking">Enquire</a>
+                    <a href={BOOK_NOW_URL} target="_blank" rel="noopener noreferrer">
+                      Book Now
+                    </a>
                   </Button>
                 </div>
               </Reveal>

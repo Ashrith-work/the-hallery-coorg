@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import { NAV_LINKS, SITE } from "@/config/site";
+import { BOOK_NOW_URL, NAV_LINKS, SITE } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -60,12 +60,14 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="#booking"
+          <a
+            href={BOOK_NOW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="border border-gold px-5 py-2.5 text-[0.8rem] uppercase tracking-[0.14em] text-gold transition-colors hover:bg-gold hover:text-ink"
           >
-            Enquire
-          </Link>
+            Book Now
+          </a>
         </nav>
 
         <button
@@ -95,13 +97,15 @@ export function Header() {
             {link.label}
           </Link>
         ))}
-        <Link
-          href="#booking"
+        <a
+          href={BOOK_NOW_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={() => setOpen(false)}
           className="border border-gold px-5 py-3 text-center text-sm uppercase tracking-[0.14em] text-gold transition-colors hover:bg-gold hover:text-ink"
         >
-          Enquire
-        </Link>
+          Book Now
+        </a>
       </div>
     </header>
   );

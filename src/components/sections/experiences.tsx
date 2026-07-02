@@ -5,6 +5,7 @@ import { Eyebrow } from "@/components/common/eyebrow";
 import { Reveal } from "@/components/common/reveal";
 import { Button } from "@/components/ui/button";
 import { EXPERIENCES } from "@/config/content";
+import { BOOK_NOW_URL } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -52,7 +53,9 @@ export function Experiences() {
 
         <Reveal className="mt-12">
           <Button asChild variant="outline">
-            <a href="#booking">Plan Your Days</a>
+            <a href={BOOK_NOW_URL} target="_blank" rel="noopener noreferrer">
+              Plan Your Days
+            </a>
           </Button>
         </Reveal>
       </Container>

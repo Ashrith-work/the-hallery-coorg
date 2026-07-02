@@ -7,7 +7,7 @@ import { Container } from "@/components/common/container";
 import { Eyebrow } from "@/components/common/eyebrow";
 import { Button } from "@/components/ui/button";
 import { DURATION, EASE } from "@/config/animations";
-import { SITE } from "@/config/site";
+import { BOOK_NOW_URL, SITE } from "@/config/site";
 
 const container = {
   hidden: {},
@@ -65,7 +65,9 @@ export function Hero() {
           </motion.p>
           <motion.div variants={child} className="mt-9 flex flex-col gap-3 phone:flex-row">
             <Button asChild variant="gold">
-              <a href="#booking">Enquire About a Stay</a>
+              <a href={BOOK_NOW_URL} target="_blank" rel="noopener noreferrer">
+                Book Your Stay
+              </a>
             </Button>
             <Button asChild variant="ghost">
               <a href="#estate">Explore the Estate</a>
