@@ -40,12 +40,11 @@ export const SITE = {
 /** External booking page (the estate's live booking system). */
 export const BOOK_NOW_URL = "https://www.hallerycoorg.com/book-now/";
 
-/** Primary in-page navigation (anchors resolved once sections are built). */
+/** Primary in-page navigation (matches the homepage section ids). */
 export const NAV_LINKS: readonly NavLink[] = [
-  { label: "Estate", href: "#estate" },
-  { label: "Coffee", href: "#coffee" },
+  { label: "About", href: "#about" },
   { label: "Stays", href: "#stays" },
-  { label: "Dining", href: "#dining" },
+  { label: "Experiences", href: "#experiences" },
   { label: "Gallery", href: "#gallery" },
 ];
 

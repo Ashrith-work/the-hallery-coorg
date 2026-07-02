@@ -1,28 +1,29 @@
 import { LoadingExperience } from "@/components/sections/loading-experience";
 import { HeroHallery } from "@/components/HeroHallery";
-import { Introduction } from "@/components/sections/introduction";
-import { EstateStory } from "@/components/sections/estate-story";
-import { HeritageTimeline } from "@/components/sections/heritage-timeline";
-import { CoffeeJourney } from "@/components/sections/coffee-journey";
+import { GoldTicker } from "@/components/hero/GoldTicker";
+import { About } from "@/components/sections/about";
 import { Accommodation } from "@/components/sections/accommodation";
-import { Experiences } from "@/components/sections/experiences";
-import { Gallery } from "@/components/sections/gallery";
-import { Testimonials } from "@/components/sections/testimonials";
+import { ExperiencesTabs } from "@/components/sections/experiences-tabs";
+import { EstateGallery } from "@/components/sections/estate-gallery";
+import { CredibilitySlider } from "@/components/sections/credibility-slider";
 
-/** The cinematic scroll journey (WEBSITE_BLUEPRINT.md). Footer lives in the layout. */
+/**
+ * Homepage composition. The earlier Introduction/EstateStory/HeritageTimeline/
+ * CoffeeJourney are consolidated into <About> (Step 4); the old Gallery/Experiences/
+ * Testimonials are replaced by EstateGallery/ExperiencesTabs/CredibilitySlider.
+ * Footer lives in the root layout.
+ */
 export default function Home() {
   return (
     <>
       <LoadingExperience />
       <HeroHallery />
-      <Introduction />
-      <EstateStory />
-      <HeritageTimeline />
-      <CoffeeJourney />
+      <GoldTicker />
+      <About />
       <Accommodation />
-      <Experiences />
-      <Gallery />
-      <Testimonials />
+      <ExperiencesTabs />
+      <EstateGallery />
+      <CredibilitySlider />
     </>
   );
 }

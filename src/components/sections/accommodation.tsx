@@ -1,10 +1,9 @@
-import Image from "next/image";
-
 import { Container } from "@/components/common/container";
 import { Eyebrow } from "@/components/common/eyebrow";
 import { Reveal } from "@/components/common/reveal";
 import { Button } from "@/components/ui/button";
-import { STAYS } from "@/config/content";
+import { ImageCarousel } from "@/components/ui/image-carousel";
+import { STAYS, roomImages } from "@/config/content";
 import { BOOK_NOW_URL } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -31,18 +30,12 @@ export function Accommodation() {
               key={stay.slug}
               className="grid gap-8 tablet:grid-cols-2 tablet:items-center tablet:gap-14"
             >
-              <Reveal
-                className={cn(
-                  "group relative aspect-[4/3] overflow-hidden",
-                  i % 2 === 1 && "tablet:order-2",
-                )}
-              >
-                <Image
-                  src={stay.image}
-                  alt={stay.name}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-700 ease-hallery group-hover:scale-105"
+              <Reveal className={cn(i % 2 === 1 && "tablet:order-2")}>
+                <ImageCarousel
+                  images={roomImages(stay.slug, stay.name)}
+                  aspect="aspect-[4/3]"
+                  autoplayMs={6000}
+                  ariaLabel={`${stay.name} photos`}
                 />
               </Reveal>
 

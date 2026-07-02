@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="260" viewBox="0 0 360 260" fill="none" role="img" aria-label="The Hallery by Old Kent">
+  <!-- TEMPORARY PLACEHOLDER logo lockup — replace with the real crest SVG. -->
+  <g fill="none" stroke="#f6f1e7" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity="0.95">
+    <!-- simple building line-art -->
+    <path d="M132 96 L180 66 L228 96" />
+    <path d="M144 96 L144 138 L216 138 L216 96" />
+    <path d="M168 138 L168 112 L192 112 L192 138" />
+  </g>
+  <g fill="#f6f1e7" font-family="'Cormorant Garamond', Georgia, serif" text-anchor="middle">
+    <rect x="150" y="30" width="60" height="1.4" fill="#c6a15b" stroke="none"/>
+    <text x="180" y="182" font-size="40" letter-spacing="5">THE HALLERY</text>
+    <text x="180" y="228" font-size="13" letter-spacing="7" fill="#c6a15b">by OLD KENT</text>
+  </g>
+</svg>

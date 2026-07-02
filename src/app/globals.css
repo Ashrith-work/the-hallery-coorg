@@ -33,6 +33,18 @@
   /* Brand breakpoints: 560px phone, 900px tablet (PROJECT_RULES §13) */
   --breakpoint-phone: 35rem;
   --breakpoint-tablet: 56.25rem;
+
+  /* Credibility ticker marquee (Step 2b) — scrolls toward the right */
+  --animate-marquee: marquee-rtl 25s linear infinite;
+}
+
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 /* ============================================================
