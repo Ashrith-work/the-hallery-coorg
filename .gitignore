@@ -1,0 +1,9 @@
+# Vercel (machine-specific link/config)
+.vercel
+
+# Local Claude Code settings
+.claude/settings.local.json
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
