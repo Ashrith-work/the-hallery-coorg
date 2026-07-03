@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import { BOOK_NOW_URL, NAV_LINKS, SITE } from "@/config/site";
+import { BOOK_NOW_URL, NAV_LINKS } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -39,17 +40,16 @@ export function Header() {
           aria-label="The Hallery by Old Kent — home"
           className="flex items-center"
         >
-          {/* TODO(logo): swap this text wordmark back to the dark/gold logo image
-              (e.g. /logo/hallery-dark.png) once the dark-on-light asset is provided.
-              The old white logo is invisible on the light header. */}
-          <span className="flex items-baseline gap-2">
-            <span className="font-serif text-xl leading-none text-ink tablet:text-2xl">
-              {SITE.name}
-            </span>
-            <span className="text-[0.55rem] uppercase tracking-[0.35em] text-gold-ink tablet:text-[0.62rem]">
-              {SITE.subName}
-            </span>
-          </span>
+          {/* Source logo is white-on-transparent; darken to an ink silhouette (brightness-0)
+              for the light header. TODO(logo): replace with a native dark/gold logo asset. */}
+          <Image
+            src="/logo/hallery-logo-clean.png"
+            alt="The Hallery by Old Kent"
+            width={200}
+            height={141}
+            priority
+            className="h-9 w-auto object-contain brightness-0 tablet:h-12"
+          />
         </Link>
 
         <nav className="hidden items-center gap-9 tablet:flex" aria-label="Primary">

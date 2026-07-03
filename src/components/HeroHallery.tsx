@@ -42,25 +42,27 @@ export function HeroHallery() {
         className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cream/55 via-transparent to-transparent"
       />
 
-      {/* Brand lockup — centered in the hero (nudged up on mobile so it clears the reel card).
-          TODO(logo): swap this text wordmark back to the dark/gold logo image
-          (e.g. /logo/hallery-dark.png) once the dark-on-light asset is provided.
-          The old /logo/hallery-logo-clean.png is white-only and invisible on the light hero. */}
+      {/* Brand logo — centered in the hero (nudged up on mobile so it clears the reel card).
+          The source asset is white-on-transparent, so we darken it to an ink silhouette
+          (brightness-0) to read on the light hero.
+          TODO(logo): replace with a native dark/gold logo asset for full fidelity. */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6 pb-[28svh] md:pb-0">
         <motion.div
-          className="text-center [text-shadow:0_2px_18px_rgba(246,241,231,0.65)]"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={
             prefersReducedMotion ? { duration: 0 } : { duration: 1.1, ease: "easeOut", delay: 0.2 }
           }
         >
-          <p className="font-serif leading-none text-ink text-[clamp(2.4rem,8vw,5rem)]">
-            The Hallery
-          </p>
-          <p className="mt-3 text-[0.62rem] uppercase tracking-[0.42em] text-gold-ink md:text-xs">
-            by Old Kent
-          </p>
+          <Image
+            src="/logo/hallery-logo-clean.png"
+            alt="The Hallery by Old Kent"
+            width={400}
+            height={282}
+            quality={90}
+            priority
+            className="h-auto w-[190px] object-contain brightness-0 md:w-[380px]"
+          />
         </motion.div>
       </div>
 
