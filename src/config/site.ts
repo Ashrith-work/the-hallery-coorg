@@ -1,3 +1,4 @@
+import { BOOKING_URL } from "@/content/sections";
 import type { NavLink } from "@/types";
 
 /**
@@ -37,8 +38,9 @@ export const SITE = {
   ],
 } as const;
 
-/** External booking page (the estate's live booking system). */
-export const BOOK_NOW_URL = "https://www.hallerycoorg.com/book-now/";
+/** External booking engine. Single source of truth is BOOKING_URL (content/sections.ts);
+ *  the header and room cards reuse it so every "Book Now" points to one place. */
+export const BOOK_NOW_URL = BOOKING_URL;
 
 /** Primary in-page navigation (matches the homepage section ids). */
 export const NAV_LINKS: readonly NavLink[] = [
