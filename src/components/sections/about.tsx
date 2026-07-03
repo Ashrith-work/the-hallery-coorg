@@ -19,9 +19,9 @@ const DISTINCT = [
 
 export function About() {
   return (
-    <section id="about" aria-label="About The Hallery" className="bg-paper py-[clamp(5rem,10vw,9rem)]">
+    <section id="about" aria-label="About The Hallery" className="bg-paper py-12 tablet:py-20">
       <Container>
-        <div className="grid items-start gap-[clamp(2rem,6vw,5rem)] tablet:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid items-start gap-8 tablet:grid-cols-[1.1fr_0.9fr] tablet:gap-14">
           <Reveal>
             <Eyebrow>About</Eyebrow>
             <h2 className="mt-4 text-[clamp(2rem,4.4vw,3.2rem)]">About The Hallery</h2>
@@ -79,7 +79,7 @@ export function About() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-x-10 gap-y-10 tablet:grid-cols-4">
+        <div className="mt-10 grid gap-x-10 gap-y-8 tablet:mt-14 tablet:grid-cols-4">
           {DISTINCT.map((d, i) => (
             <Reveal key={d.title} delay={(i % 4) * 0.06} className="border-t border-line pt-5">
               <h3 className="text-xl">{d.title}</h3>

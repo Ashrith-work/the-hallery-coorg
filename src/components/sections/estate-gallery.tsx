@@ -8,29 +8,23 @@ import { X } from "lucide-react";
 import { Container } from "@/components/common/container";
 import { Eyebrow } from "@/components/common/eyebrow";
 import { Reveal } from "@/components/common/reveal";
-import { cn } from "@/lib/utils";
+import { Card } from "@/components/ui/card";
+import { ESTATE_GALLERY } from "@/config/content";
 
 /**
- * Step 5 — "A Glimpse of the Estate": responsive masonry grid from
- * /public/estate/estate-1..8.jpg (lazy-loaded), with a quiet lightbox.
- * ASSETS: replace the 8 placeholder photos in /public/estate/ with the real set.
+ * Step 5 — "A Glimpse of the Estate": a uniform grid of hotel cards (see <Card>),
+ * each opening a quiet lightbox. Images are the real estate set from /public/images/
+ * (curated in ESTATE_GALLERY). One consistent card shell, matching the rest of the page.
  */
-const IMAGES = Array.from({ length: 8 }, (_, i) => ({
-  src: `/estate/estate-${i + 1}.jpg`,
-  alt: `The Hallery estate — photo ${i + 1}`,
-}));
-
-const SPAN: Array<"tall" | "wide" | ""> = ["tall", "", "", "wide", "", "tall", "", ""];
-
 export function EstateGallery() {
   const [active, setActive] = useState<number | null>(null);
-  const current = active === null ? null : IMAGES[active];
+  const current = active === null ? null : ESTATE_GALLERY[active];
 
   return (
     <section
       id="gallery"
       aria-label="A Glimpse of the Estate"
-      className="bg-charcoal py-[clamp(5rem,10vw,9rem)] text-cream"
+      className="bg-charcoal py-12 text-cream tablet:py-20"
     >
       <Container>
         <Reveal className="max-w-2xl">
@@ -38,32 +32,17 @@ export function EstateGallery() {
           <h2 className="mt-4 text-[clamp(2rem,4.4vw,3.2rem)]">A Glimpse of the Estate</h2>
         </Reveal>
 
-        <div className="mt-12 grid auto-rows-[200px] grid-cols-2 gap-3 tablet:grid-cols-4">
-          {IMAGES.map((img, i) => (
-            <Reveal
-              key={img.src}
-              delay={(i % 4) * 0.05}
-              className={cn(
-                "group relative overflow-hidden",
-                SPAN[i] === "tall" && "row-span-2",
-                SPAN[i] === "wide" && "col-span-2",
-              )}
-            >
-              <button
-                type="button"
+        <div className="mt-10 grid grid-cols-1 gap-6 phone:grid-cols-2 tablet:mt-14 tablet:grid-cols-4 tablet:gap-8">
+          {ESTATE_GALLERY.map((img, i) => (
+            <Reveal key={img.src} delay={(i % 4) * 0.05} className="h-full">
+              <Card
+                tone="dark"
+                image={img.src}
+                imageAlt={img.alt}
+                title={img.caption}
                 onClick={() => setActive(i)}
-                aria-label={`View ${img.alt}`}
-                className="absolute inset-0 h-full w-full"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 900px) 50vw, 25vw"
-                  loading="lazy"
-                  className="object-cover transition-transform duration-700 ease-hallery group-hover:scale-105"
-                />
-              </button>
+                sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 25vw"
+              />
             </Reveal>
           ))}
         </div>

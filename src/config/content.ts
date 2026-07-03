@@ -49,6 +49,22 @@ export function roomImages(slug: string, name: string) {
   }));
 }
 
+/**
+ * Estate gallery — a curated set of real estate photos from /public/images/.
+ * Eight distinct shots (exteriors, interiors, dining, rooms) so the grid reads as
+ * one cohesive showcase. Swap individual entries as new photography lands.
+ */
+export const ESTATE_GALLERY: { src: string; alt: string; caption: string }[] = [
+  { src: "/images/estate-aerial-dusk.jpg", alt: "Aerial view of the estate at dusk", caption: "The Estate at Dusk" },
+  { src: "/images/heritage-interior-chandelier.jpg", alt: "Heritage interior with chandelier", caption: "Heritage Interiors" },
+  { src: "/images/verandah-lattice-detail.jpg", alt: "Latticework detail on the bungalow verandah", caption: "Verandah Lattice" },
+  { src: "/images/rosarium-fountain.jpg", alt: "The fountain at the Rosarium", caption: "The Rosarium Fountain" },
+  { src: "/images/antique-desk-detail.jpg", alt: "An antique writing desk in the bungalow", caption: "Antique Writing Desk" },
+  { src: "/images/bonfire-picnic.jpg", alt: "A bonfire gathering under the trees", caption: "Bonfire Evenings" },
+  { src: "/images/mangles-bungalow-dusk.jpg", alt: "Mangles Bungalow at dusk", caption: "Mangles Bungalow" },
+  { src: "/images/chef-plating.jpg", alt: "A chef plating a dish from the estate kitchen", caption: "From the Kitchen" },
+];
+
 /** Credibility slider (SAMPLE ratings/quotes — replace with real, consented ones). */
 export const CREDIBILITY: { source: string; rating?: string; quote: string; author: string }[] = [
   {
