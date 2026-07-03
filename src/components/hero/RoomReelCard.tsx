@@ -19,7 +19,7 @@ export function RoomReelCard() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <div className="w-[150px] max-w-[46vw] overflow-hidden rounded-2xl bg-paper/90 shadow-xl ring-1 ring-line backdrop-blur md:w-[200px]">
+    <div className="w-[150px] max-w-[46vw] overflow-hidden rounded-2xl bg-charcoal/90 shadow-xl ring-1 ring-white/10 backdrop-blur md:w-[200px]">
       <div className="relative aspect-[9/16]">
         {prefersReducedMotion ? (
           <Image
@@ -43,11 +43,11 @@ export function RoomReelCard() {
           </video>
         )}
 
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-paper via-paper/25 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent" />
 
         <div className="absolute inset-x-0 bottom-0 p-3">
-          <p className="font-serif text-lg leading-tight text-ink">Rooms Available</p>
-          <p className="mt-0.5 text-[0.7rem] leading-snug text-ink-soft">
+          <p className="font-serif text-lg leading-tight text-cream">Rooms Available</p>
+          <p className="mt-0.5 text-[0.7rem] leading-snug text-cream/70">
             A few suites open this season.
           </p>
           <Button asChild variant="gold" size="sm" className="mt-2.5 w-full">

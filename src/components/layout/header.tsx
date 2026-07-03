@@ -9,9 +9,9 @@ import { BOOK_NOW_URL, NAV_LINKS } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 /**
- * Fixed header: transparent over the hero's light sky, then a soft cream bar with a
- * subtle shadow after ~80px. Dark ink text throughout. Mobile is a full-height
- * slide-in panel.
+ * Fixed header: transparent over the dark hero (the white crest logo reads on the
+ * image), then a solid charcoal bar with a subtle shadow after ~80px — the background
+ * never turns white. Smooth 300ms transition. Mobile is a full-height slide-in panel.
  */
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -29,7 +29,7 @@ export function Header() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-hallery",
         scrolled
-          ? "bg-cream/95 py-3 shadow-[0_8px_30px_rgba(26,23,18,0.08)] backdrop-blur-md"
+          ? "bg-charcoal/95 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.28)] backdrop-blur-md"
           : "py-5",
       )}
     >
@@ -40,15 +40,14 @@ export function Header() {
           aria-label="The Hallery by Old Kent — home"
           className="flex items-center"
         >
-          {/* Source logo is white-on-transparent; darken to an ink silhouette (brightness-0)
-              for the light header. TODO(logo): replace with a native dark/gold logo asset. */}
+          {/* White crest logo — transparent container only: no bg, border, shadow, or filter. */}
           <Image
             src="/logo/hallery-logo-clean.png"
             alt="The Hallery by Old Kent"
             width={200}
             height={141}
             priority
-            className="h-9 w-auto object-contain brightness-0 tablet:h-12"
+            className="h-9 w-auto object-contain tablet:h-12"
           />
         </Link>
 
@@ -57,7 +56,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-[0.8rem] uppercase tracking-[0.14em] text-ink transition-colors hover:text-gold-ink"
+              className="text-[0.8rem] uppercase tracking-[0.14em] text-cream transition-colors hover:text-gold"
             >
               {link.label}
             </Link>
@@ -66,7 +65,7 @@ export function Header() {
             href={BOOK_NOW_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-gold px-5 py-2.5 text-[0.8rem] uppercase tracking-[0.14em] text-gold-ink transition-colors hover:bg-gold hover:text-ink"
+            className="border border-gold px-5 py-2.5 text-[0.8rem] uppercase tracking-[0.14em] text-gold transition-colors hover:bg-gold hover:text-ink"
           >
             Book Now
           </a>
@@ -75,7 +74,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="text-ink tablet:hidden"
+          className="text-cream tablet:hidden"
           aria-label="Toggle navigation"
           aria-expanded={open}
         >
@@ -85,7 +84,7 @@ export function Header() {
 
       <div
         className={cn(
-          "fixed inset-y-0 right-0 z-40 flex w-[min(20rem,80vw)] flex-col justify-center gap-8 border-l border-line bg-cream/98 px-8 backdrop-blur-md transition-transform duration-500 ease-hallery tablet:hidden",
+          "fixed inset-y-0 right-0 z-40 flex w-[min(20rem,80vw)] flex-col justify-center gap-8 bg-charcoal/98 px-8 backdrop-blur-md transition-transform duration-500 ease-hallery tablet:hidden",
           open ? "translate-x-0" : "translate-x-full",
         )}
       >
@@ -94,7 +93,7 @@ export function Header() {
             key={link.href}
             href={link.href}
             onClick={() => setOpen(false)}
-            className="text-sm uppercase tracking-[0.2em] text-ink transition-colors hover:text-gold-ink"
+            className="text-sm uppercase tracking-[0.2em] text-cream transition-colors hover:text-gold"
           >
             {link.label}
           </Link>
@@ -104,7 +103,7 @@ export function Header() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => setOpen(false)}
-          className="border border-gold px-5 py-3 text-center text-sm uppercase tracking-[0.14em] text-gold-ink transition-colors hover:bg-gold hover:text-ink"
+          className="border border-gold px-5 py-3 text-center text-sm uppercase tracking-[0.14em] text-gold transition-colors hover:bg-gold hover:text-ink"
         >
           Book Now
         </a>

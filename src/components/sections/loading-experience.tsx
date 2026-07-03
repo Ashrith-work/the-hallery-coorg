@@ -25,7 +25,7 @@ export function LoadingExperience() {
       {!done && (
         <motion.div
           key="loader"
-          className="fixed inset-0 z-[999] grid place-items-center bg-cream text-ink"
+          className="fixed inset-0 z-[999] grid place-items-center bg-charcoal text-cream"
           initial={{ opacity: 1 }}
           exit={{ y: "-100%", opacity: 0 }}
           transition={{ duration: 0.9, ease: EASE }}
@@ -36,10 +36,10 @@ export function LoadingExperience() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, ease: EASE }}
           >
-            <span className="grid size-16 place-items-center border border-gold-ink font-serif text-xl tracking-wide text-gold-ink">
+            <span className="grid size-16 place-items-center border border-gold font-serif text-xl tracking-wide text-gold">
               TH
             </span>
-            <p className="mt-4 text-[0.6rem] uppercase tracking-[0.4em] text-gold-ink">
+            <p className="mt-4 text-[0.6rem] uppercase tracking-[0.4em] text-gold">
               {SITE.name} · {SITE.subName}
             </p>
           </motion.div>

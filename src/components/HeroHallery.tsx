@@ -36,16 +36,14 @@ export function HeroHallery() {
         />
       </div>
 
-      {/* Soft light scrim at the top so the dark header nav stays legible over the sky */}
+      {/* Legibility overlay so the white crest logo + header read over the image */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cream/55 via-transparent to-transparent"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/45"
       />
 
-      {/* Brand logo — centered in the hero (nudged up on mobile so it clears the reel card).
-          The source asset is white-on-transparent, so we darken it to an ink silhouette
-          (brightness-0) to read on the light hero.
-          TODO(logo): replace with a native dark/gold logo asset for full fidelity. */}
+      {/* White crest logo — centered in the hero (nudged up on mobile so it clears the
+          reel card). Transparent container only: no bg, border, shadow, or filter. */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6 pb-[28svh] md:pb-0">
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
@@ -61,7 +59,7 @@ export function HeroHallery() {
             height={282}
             quality={90}
             priority
-            className="h-auto w-[190px] object-contain brightness-0 md:w-[380px]"
+            className="h-auto w-[190px] object-contain md:w-[380px]"
           />
         </motion.div>
       </div>
