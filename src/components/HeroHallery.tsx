@@ -46,10 +46,14 @@ export function HeroHallery() {
           action bar). Transparent container only: no bg, border, shadow, or filter. */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6 pb-[16svh] md:pb-0">
         <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
+          // "Pop up" entrance: springs up small → overshoots slightly larger →
+          // settles back to its original (scale 1) resting position.
+          initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.4 }}
+          animate={prefersReducedMotion ? { opacity: 1 } : { opacity: 1, scale: [0.4, 1.15, 1] }}
           transition={
-            prefersReducedMotion ? { duration: 0 } : { duration: 1.1, ease: "easeOut", delay: 0.2 }
+            prefersReducedMotion
+              ? { duration: 0 }
+              : { duration: 1, ease: "easeOut", times: [0, 0.65, 1], delay: 0.2 }
           }
         >
           <Image

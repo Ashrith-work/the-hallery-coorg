@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import { BOOK_NOW_URL, NAV_LINKS } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -16,6 +17,7 @@ import { cn } from "@/lib/utils";
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -40,15 +42,28 @@ export function Header() {
           aria-label="The Hallery by Old Kent — home"
           className="flex items-center"
         >
-          {/* White crest logo — transparent container only: no bg, border, shadow, or filter. */}
-          <Image
-            src="/logo/hallery-logo-clean.png"
-            alt="The Hallery by Old Kent"
-            width={200}
-            height={141}
-            priority
-            className="h-9 w-auto object-contain tablet:h-12"
-          />
+          {/* White crest logo — transparent container only: no bg, border, shadow, or filter.
+              Perspective on the wrapper gives the child's Y-rotation real 3D depth. */}
+          <motion.div style={{ perspective: 800 }}>
+            <motion.div
+              animate={prefersReducedMotion ? undefined : { rotateY: 360 }}
+              transition={
+                prefersReducedMotion
+                  ? undefined
+                  : { duration: 8, ease: "linear", repeat: Infinity }
+              }
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              <Image
+                src="/logo/hallery-logo-clean.png"
+                alt="The Hallery by Old Kent"
+                width={200}
+                height={141}
+                priority
+                className="h-9 w-auto object-contain tablet:h-12"
+              />
+            </motion.div>
+          </motion.div>
         </Link>
 
         <nav className="hidden items-center gap-9 tablet:flex" aria-label="Primary">
