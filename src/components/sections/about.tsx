@@ -12,14 +12,14 @@ import { ABOUT_COPY } from "@/config/content";
  * config/content.ts; the header in content/sections.ts.
  */
 export function About() {
-  const { eyebrow, title } = SECTIONS.about;
+  const { title } = SECTIONS.about;
 
   return (
     <section id="about" aria-label={title} className="bg-paper py-12 tablet:py-20">
       <Container>
         <div className="grid items-center gap-8 tablet:grid-cols-2 tablet:gap-14">
           <Reveal>
-            <SectionHeading eyebrow={eyebrow} title={title} />
+            <SectionHeading title={title} />
             <p className="mt-6 max-w-xl text-ink-soft leading-relaxed">{ABOUT_COPY}</p>
           </Reveal>
 

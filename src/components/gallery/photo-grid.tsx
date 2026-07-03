@@ -15,6 +15,11 @@ interface PhotoGridProps {
   images: FolderImage[];
   /** next/image `sizes` for the thumbnails. */
   sizes?: string;
+  /**
+   * Hover effect. "zoom" (default) gently scales the image; "flip" spins it a full
+   * turn on its vertical axis (rotateY 360°). Both are gated behind reduced motion.
+   */
+  hover?: "zoom" | "flip";
   className?: string;
 }
 
@@ -28,12 +33,19 @@ const DEFAULT_SIZES = "(max-width: 560px) 50vw, (max-width: 900px) 33vw, 25vw";
  *
  * Reused by every folder-driven gallery (estate, experiences within/beyond).
  */
-export function PhotoGrid({ images, sizes = DEFAULT_SIZES, className }: PhotoGridProps) {
+export function PhotoGrid({
+  images,
+  sizes = DEFAULT_SIZES,
+  hover = "zoom",
+  className,
+}: PhotoGridProps) {
   const [index, setIndex] = useState(-1);
 
   if (images.length === 0) {
     return <p className="text-sm text-ink-soft">Photos coming soon.</p>;
   }
+
+  const flip = hover === "flip";
 
   return (
     <>
@@ -44,7 +56,10 @@ export function PhotoGrid({ images, sizes = DEFAULT_SIZES, className }: PhotoGri
               type="button"
               onClick={() => setIndex(i)}
               aria-label={`View photo: ${img.alt}`}
-              className="group block w-full overflow-hidden rounded-2xl border border-line focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
+              className={cn(
+                "group block w-full overflow-hidden rounded-2xl border border-line focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2",
+                flip && "[perspective:1000px]",
+              )}
             >
               <Image
                 src={img.src}
@@ -53,7 +68,12 @@ export function PhotoGrid({ images, sizes = DEFAULT_SIZES, className }: PhotoGri
                 height={img.height}
                 sizes={sizes}
                 loading="lazy"
-                className="h-auto w-full object-cover transition-transform duration-700 ease-hallery motion-safe:group-hover:scale-105"
+                className={cn(
+                  "h-auto w-full object-cover transition-transform ease-hallery",
+                  flip
+                    ? "duration-[900ms] [transform-style:preserve-3d] motion-safe:group-hover:[transform:rotateY(360deg)]"
+                    : "duration-700 motion-safe:group-hover:scale-105",
+                )}
               />
             </button>
           </Reveal>

@@ -25,7 +25,7 @@ export function EstateGallery() {
         </Reveal>
 
         <div className="mt-10 tablet:mt-14">
-          <PhotoGrid images={images} />
+          <PhotoGrid images={images} hover="flip" />
         </div>
       </Container>
     </section>
