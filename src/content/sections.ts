@@ -1,4 +1,11 @@
 /**
+ * Booking engine URL — opens in a new tab from the hero "Book Now" action.
+ * Change it here in one place; the component reads from this constant.
+ */
+export const BOOKING_URL =
+  "https://www.secure-booking-engine.com/accounts/11Hrh9MP4Prs3tVwhWqnLA/properties/sr6YRfa8sRkXz4oyRiQSxA/booking-engine/web/source/4wsctBw6Oq6j-g9XuxeRzQ/cart/WhtCTpIS9vCfV8h3h66Zcg/#!/rooms";
+
+/**
  * Section headers in ONE place. Rename or repoint any section title/subtitle here
  * without touching the components. `folder` is the /public-relative image folder
  * that drives that section's grid (see src/lib/gallery.ts).

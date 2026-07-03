@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
-import { RoomReelCard } from "@/components/hero/RoomReelCard";
+import { HeroActionBar } from "@/components/hero/HeroActionBar";
 
 /**
  * Full-screen hero for "The Hallery by Old Kent".
@@ -43,8 +43,8 @@ export function HeroHallery() {
       />
 
       {/* White crest logo — centered in the hero (nudged up on mobile so it clears the
-          reel card). Transparent container only: no bg, border, shadow, or filter. */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6 pb-[28svh] md:pb-0">
+          action bar). Transparent container only: no bg, border, shadow, or filter. */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6 pb-[16svh] md:pb-0">
         <motion.div
           initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,25 +64,9 @@ export function HeroHallery() {
         </motion.div>
       </div>
 
-      {/* Room-availability reel card (Step 2a): bottom-center on mobile, bottom-right on desktop */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:right-6 md:translate-x-0">
-        <RoomReelCard />
-      </div>
-
-      {/* Minimal scroll cue — hidden on mobile (the reel card occupies the lower area) */}
-      <div
-        aria-hidden="true"
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 opacity-60 md:block"
-      >
-        {prefersReducedMotion ? (
-          <span className="block h-10 w-px bg-white/80" />
-        ) : (
-          <motion.span
-            className="block h-10 w-px bg-white/80"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.8, ease: "easeInOut", repeat: Infinity }}
-          />
-        )}
+      {/* Hero action bar: full-width row near the bottom on mobile, pinned bottom-center on desktop */}
+      <div className="absolute inset-x-4 bottom-8 flex justify-center md:inset-x-0">
+        <HeroActionBar />
       </div>
     </section>
   );
