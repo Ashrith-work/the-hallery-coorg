@@ -6,6 +6,10 @@ import type { Stay } from "@/types";
  * NOTE: credibility quotes and experience copy are SAMPLE — replace before launch.
  */
 
+/** About — the homepage intro paragraph (shown above the Gallery). */
+export const ABOUT_COPY =
+  "The Hallery is a heritage resort in Coorg that reflects the legacy of the Haleri (Paleri) dynasty and the cultural richness of Coorg. Blending historic charm with refined plantation living, it offers an immersive luxury stay set amid lush gardens, untouched woodlands, and lovingly nurtured coffee plantations. The resort's architecture and serene outdoor spaces preserve stories of the past while providing a peaceful setting for rest and renewal. Ideal for travellers seeking boutique resort experiences or romantic cottages in Coorg, The Hallery is designed to deliver comfort, beauty, and quiet sophistication.";
+
 /** About — headline figures. */
 export const ESTATE_STATS = [
   { value: "260", label: "Acres of Estate" },

@@ -1,6 +1,7 @@
 import { LoadingExperience } from "@/components/sections/loading-experience";
 import { HeroHallery } from "@/components/HeroHallery";
 import { GoldTicker } from "@/components/hero/GoldTicker";
+import { About } from "@/components/sections/about";
 import { Accommodation } from "@/components/sections/accommodation";
 import { ExperiencesTabs } from "@/components/sections/experiences-tabs";
 import { EstateGallery } from "@/components/sections/estate-gallery";
@@ -17,6 +18,7 @@ export default function Home() {
       <LoadingExperience />
       <HeroHallery />
       <GoldTicker />
+      <About />
       <EstateGallery />
       <Accommodation />
       <ExperiencesTabs />

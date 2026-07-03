@@ -15,6 +15,10 @@ export interface SectionHeader {
 }
 
 export const SECTIONS = {
+  about: {
+    eyebrow: "About",
+    title: "About The Hallery",
+  },
   gallery: {
     eyebrow: "Gallery",
     title: "A Glimpse of the Estate",
