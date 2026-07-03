@@ -17,10 +17,10 @@ function Track({ hidden = false }: { hidden?: boolean }) {
     <div className="flex shrink-0 items-center" aria-hidden={hidden || undefined}>
       {ITEMS.map((item) => (
         <span key={item} className="flex items-center">
-          <span className="whitespace-nowrap px-6 text-[0.72rem] uppercase tracking-[0.25em] text-gold-ink">
+          <span className="whitespace-nowrap px-7 text-[0.95rem] font-medium uppercase tracking-[0.2em] text-gold">
             {item}
           </span>
-          <span className="text-gold-ink" aria-hidden="true">
+          <span className="text-gold" aria-hidden="true">
             •
           </span>
         </span>
@@ -32,7 +32,7 @@ function Track({ hidden = false }: { hidden?: boolean }) {
 export function GoldTicker() {
   return (
     <div
-      className="group overflow-hidden border-y border-line bg-cream py-3"
+      className="group overflow-hidden border-y border-line bg-charcoal py-4"
       aria-label="Guest ratings and highlights"
     >
       <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
