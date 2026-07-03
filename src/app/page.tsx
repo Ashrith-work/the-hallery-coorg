@@ -1,17 +1,15 @@
 import { LoadingExperience } from "@/components/sections/loading-experience";
 import { HeroHallery } from "@/components/HeroHallery";
 import { GoldTicker } from "@/components/hero/GoldTicker";
-import { About } from "@/components/sections/about";
 import { Accommodation } from "@/components/sections/accommodation";
 import { ExperiencesTabs } from "@/components/sections/experiences-tabs";
 import { EstateGallery } from "@/components/sections/estate-gallery";
 import { CredibilitySlider } from "@/components/sections/credibility-slider";
 
 /**
- * Homepage composition. The earlier Introduction/EstateStory/HeritageTimeline/
- * CoffeeJourney are consolidated into <About> (Step 4); the old Gallery/Experiences/
- * Testimonials are replaced by EstateGallery/ExperiencesTabs/CredibilitySlider.
- * Footer lives in the root layout.
+ * Homepage composition. The About/story block now lives only on the dedicated
+ * /about route (the header "About" link points there); the homepage flows
+ * Hero → Gallery → Stays → Experiences → Credibility. Footer lives in the root layout.
  */
 export default function Home() {
   return (
@@ -19,7 +17,6 @@ export default function Home() {
       <LoadingExperience />
       <HeroHallery />
       <GoldTicker />
-      <About />
       <EstateGallery />
       <Accommodation />
       <ExperiencesTabs />
