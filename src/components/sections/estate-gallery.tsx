@@ -24,11 +24,11 @@ export function EstateGallery() {
     <section
       id="gallery"
       aria-label="A Glimpse of the Estate"
-      className="bg-charcoal py-12 text-cream tablet:py-20"
+      className="bg-cream py-12 tablet:py-20"
     >
       <Container>
         <Reveal className="max-w-2xl">
-          <Eyebrow tone="dark">Gallery</Eyebrow>
+          <Eyebrow>Gallery</Eyebrow>
           <h2 className="mt-4 text-[clamp(2rem,4.4vw,3.2rem)]">A Glimpse of the Estate</h2>
         </Reveal>
 
@@ -36,7 +36,6 @@ export function EstateGallery() {
           {ESTATE_GALLERY.map((img, i) => (
             <Reveal key={img.src} delay={(i % 4) * 0.05} className="h-full">
               <Card
-                tone="dark"
                 image={img.src}
                 imageAlt={img.alt}
                 title={img.caption}
@@ -51,7 +50,7 @@ export function EstateGallery() {
       <AnimatePresence>
         {current && (
           <motion.div
-            className="fixed inset-0 z-[200] grid place-items-center bg-ink/95 p-6"
+            className="fixed inset-0 z-[200] grid place-items-center bg-cream/95 p-6 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -59,7 +58,7 @@ export function EstateGallery() {
           >
             <button
               type="button"
-              className="absolute right-6 top-6 text-cream transition-colors hover:text-gold"
+              className="absolute right-6 top-6 text-ink transition-colors hover:text-gold-ink"
               onClick={() => setActive(null)}
               aria-label="Close"
             >

@@ -36,31 +36,31 @@ export function HeroHallery() {
         />
       </div>
 
-      {/* Legibility overlay for future nav / headings */}
+      {/* Soft light scrim at the top so the dark header nav stays legible over the sky */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/45"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-cream/55 via-transparent to-transparent"
       />
 
-      {/* Logo — centered in the hero (nudged up on mobile so it clears the reel card) */}
+      {/* Brand lockup — centered in the hero (nudged up on mobile so it clears the reel card).
+          TODO(logo): swap this text wordmark back to the dark/gold logo image
+          (e.g. /logo/hallery-dark.png) once the dark-on-light asset is provided.
+          The old /logo/hallery-logo-clean.png is white-only and invisible on the light hero. */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6 pb-[28svh] md:pb-0">
         <motion.div
+          className="text-center [text-shadow:0_2px_18px_rgba(246,241,231,0.65)]"
           initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={
             prefersReducedMotion ? { duration: 0 } : { duration: 1.1, ease: "easeOut", delay: 0.2 }
           }
         >
-          {/* Transparent container only — no bg, padding-bg, border, shadow, or filter. */}
-          <Image
-            src="/logo/hallery-logo-clean.png"
-            alt="The Hallery by Old Kent"
-            width={400}
-            height={282}
-            quality={90}
-            priority
-            className="h-auto w-[190px] object-contain md:w-[380px]"
-          />
+          <p className="font-serif leading-none text-ink text-[clamp(2.4rem,8vw,5rem)]">
+            The Hallery
+          </p>
+          <p className="mt-3 text-[0.62rem] uppercase tracking-[0.42em] text-gold-ink md:text-xs">
+            by Old Kent
+          </p>
         </motion.div>
       </div>
 

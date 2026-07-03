@@ -20,9 +20,9 @@ export default function Home() {
       <HeroHallery />
       <GoldTicker />
       <About />
+      <EstateGallery />
       <Accommodation />
       <ExperiencesTabs />
-      <EstateGallery />
       <CredibilitySlider />
     </>
   );

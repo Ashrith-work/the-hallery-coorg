@@ -42,12 +42,12 @@ export function Accommodation() {
   }, [emblaApi]);
 
   return (
-    <section id="stays" className="bg-charcoal py-12 text-cream tablet:py-20">
+    <section id="stays" className="bg-paper py-12 tablet:py-20">
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
-          <Eyebrow tone="dark">Stays</Eyebrow>
+          <Eyebrow>Stays</Eyebrow>
           <h2 className="mt-4 text-[clamp(2rem,4.4vw,3.2rem)]">Three Homes, Each With a History</h2>
-          <p className="mt-5 text-cream/70">
+          <p className="mt-5 text-ink-soft">
             Every room opens to coffee and spice plantations — antiques, four-poster beds, and
             complete quiet.
           </p>
@@ -70,7 +70,6 @@ export function Accommodation() {
                   aria-label={`${i + 1} of ${STAYS.length}: ${stay.name}`}
                 >
                   <Card
-                    tone="dark"
                     image={stay.image}
                     imageAlt={`${stay.name} — heritage accommodation at The Hallery`}
                     title={stay.name}
@@ -88,7 +87,7 @@ export function Accommodation() {
             type="button"
             onClick={() => emblaApi?.scrollPrev()}
             aria-label="Previous room"
-            className="absolute -left-3 top-[28%] hidden -translate-y-1/2 rounded-full bg-ink/50 p-2 text-cream backdrop-blur transition-colors hover:text-gold tablet:-left-12 tablet:block"
+            className="absolute -left-3 top-[28%] hidden -translate-y-1/2 rounded-full border border-line bg-paper/90 p-2 text-gold-ink shadow-sm backdrop-blur transition-colors hover:text-gold tablet:-left-12 tablet:block"
           >
             <ChevronLeft className="size-6" />
           </button>
@@ -96,7 +95,7 @@ export function Accommodation() {
             type="button"
             onClick={() => emblaApi?.scrollNext()}
             aria-label="Next room"
-            className="absolute -right-3 top-[28%] hidden -translate-y-1/2 rounded-full bg-ink/50 p-2 text-cream backdrop-blur transition-colors hover:text-gold tablet:-right-12 tablet:block"
+            className="absolute -right-3 top-[28%] hidden -translate-y-1/2 rounded-full border border-line bg-paper/90 p-2 text-gold-ink shadow-sm backdrop-blur transition-colors hover:text-gold tablet:-right-12 tablet:block"
           >
             <ChevronRight className="size-6" />
           </button>
@@ -111,7 +110,7 @@ export function Accommodation() {
                 aria-current={i === selected}
                 className={cn(
                   "h-1.5 rounded-full transition-all",
-                  i === selected ? "w-5 bg-gold" : "w-1.5 bg-cream/40",
+                  i === selected ? "w-5 bg-gold-ink" : "w-1.5 bg-line",
                 )}
               />
             ))}

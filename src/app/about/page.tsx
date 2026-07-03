@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section aria-label="About banner" className="relative flex min-h-[42svh] items-end overflow-hidden bg-charcoal">
+      <section aria-label="About banner" className="relative flex min-h-[42svh] items-end overflow-hidden bg-cream">
         <div className="absolute inset-0" aria-hidden="true">
           <Image
             src="/images/estate-aerial-dusk.jpg"
@@ -27,15 +27,16 @@ export default function AboutPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-70"
+            className="object-cover"
           />
         </div>
+        {/* Light bottom scrim so the dark ink heading stays legible over the photo */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/30 to-ink/80"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-cream/30 to-cream/90"
         />
-        <Container className="relative z-10 pb-12 pt-28 text-cream">
-          <Eyebrow tone="dark">The Hallery · Coorg</Eyebrow>
+        <Container className="relative z-10 pb-12 pt-28 text-ink">
+          <Eyebrow>The Hallery · Coorg</Eyebrow>
           <h1 className="mt-3 text-[clamp(2.4rem,6vw,4rem)]">Our Story</h1>
         </Container>
       </section>

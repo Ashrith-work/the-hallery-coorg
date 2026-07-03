@@ -39,7 +39,7 @@ export function CredibilitySlider() {
   return (
     <section
       aria-label="Why guests trust The Hallery"
-      className="bg-cream py-12 tablet:py-20"
+      className="bg-paper py-12 tablet:py-20"
     >
       <Container className="max-w-3xl text-center">
         <Eyebrow>Why Guests Trust The Hallery</Eyebrow>

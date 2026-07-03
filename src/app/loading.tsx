@@ -7,12 +7,12 @@ import { SITE } from "@/config/site";
  */
 export default function Loading() {
   return (
-    <div className="fixed inset-0 z-[999] grid place-items-center bg-charcoal text-cream">
+    <div className="fixed inset-0 z-[999] grid place-items-center bg-cream text-ink">
       <div className="flex flex-col items-center">
-        <span className="grid size-14 animate-pulse place-items-center border border-gold font-serif text-lg tracking-wide text-gold">
+        <span className="grid size-14 animate-pulse place-items-center border border-gold-ink font-serif text-lg tracking-wide text-gold-ink">
           TH
         </span>
-        <p className="mt-4 text-[0.6rem] uppercase tracking-[0.4em] text-gold">
+        <p className="mt-4 text-[0.6rem] uppercase tracking-[0.4em] text-gold-ink">
           {SITE.name} · {SITE.subName}
         </p>
       </div>

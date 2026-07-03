@@ -40,7 +40,7 @@ export function ExperiencesTabs() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="experiences" aria-label="Experiences" className="bg-paper py-12 tablet:py-20">
+    <section id="experiences" aria-label="Experiences" className="bg-cream py-12 tablet:py-20">
       <Container>
         <Reveal className="max-w-2xl">
           <Eyebrow>Experiences</Eyebrow>
