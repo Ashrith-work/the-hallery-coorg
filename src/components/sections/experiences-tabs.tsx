@@ -25,7 +25,7 @@ export function ExperiencesTabs() {
           <SectionHeading eyebrow={within.eyebrow} title={within.title} subtitle={within.subtitle} />
         </Reveal>
         <div className="mt-10 tablet:mt-14">
-          <PhotoGrid images={withinImages} />
+          <PhotoGrid images={withinImages} hover="flip" />
         </div>
 
         <div className="mt-16 tablet:mt-24">
@@ -37,7 +37,7 @@ export function ExperiencesTabs() {
             />
           </Reveal>
           <div className="mt-10 tablet:mt-14">
-            <PhotoGrid images={beyondImages} />
+            <PhotoGrid images={beyondImages} hover="flip" />
           </div>
         </div>
       </Container>
