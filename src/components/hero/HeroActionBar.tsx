@@ -16,14 +16,14 @@ const SECONDARY = [
     label: "Call",
     aria: "Call The Hallery",
     icon: Phone,
-    href: "tel:+910000000000", // TODO: real reservations phone number
+    href: "tel:+919900018733",
     external: false,
   },
   {
     label: "WhatsApp",
     aria: "Message The Hallery on WhatsApp",
     icon: MessageCircle,
-    href: "https://wa.me/910000000000", // TODO: real WhatsApp number (international format, no +)
+    href: "https://wa.me/919900018733",
     external: true,
   },
   {
