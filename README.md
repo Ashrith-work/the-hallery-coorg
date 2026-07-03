@@ -27,6 +27,11 @@ npm run format     # prettier
 
 Copy `.env.example` → `.env.local` and set `NEXT_PUBLIC_SITE_URL`.
 
+## Deploy
+
+Hosted on Vercel with Git auto-deploy: pushes to `master` ship to production
+(<https://the-hallery.vercel.app>); other branches/PRs get preview URLs.
+
 ## Structure
 
 ```
