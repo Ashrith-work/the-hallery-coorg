@@ -7,16 +7,17 @@ import { useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { Container } from "@/components/common/container";
-import { Eyebrow } from "@/components/common/eyebrow";
 import { Reveal } from "@/components/common/reveal";
+import { SectionHeading } from "@/components/common/section-heading";
 import { Card } from "@/components/ui/card";
+import { SECTIONS } from "@/content/sections";
 import { STAYS } from "@/config/content";
 import { BOOK_NOW_URL } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 /**
  * Section 7 — Luxury Accommodation (WEBSITE_BLUEPRINT §7). The three named homes
- * as a single-card carousel: one room shown at a time, auto-advancing every 1.8s
+ * as a single-card carousel: one room shown at a time, auto-advancing every 3s
  * (looping), with arrows + dots. Each slide is a unified hotel <Card>. Autoplay is
  * disabled under prefers-reduced-motion and pauses on hover.
  */
@@ -26,7 +27,7 @@ export function Accommodation() {
     { loop: true, align: "center" },
     prefersReducedMotion
       ? []
-      : [Autoplay({ delay: 1800, stopOnInteraction: false, stopOnMouseEnter: true })],
+      : [Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })],
   );
   const [selected, setSelected] = useState(0);
   const scrollTo = useCallback((i: number) => emblaApi?.scrollTo(i), [emblaApi]);
@@ -44,13 +45,13 @@ export function Accommodation() {
   return (
     <section id="stays" className="bg-paper py-12 tablet:py-20">
       <Container>
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <Eyebrow>Stays</Eyebrow>
-          <h2 className="mt-4 text-[clamp(2rem,4.4vw,3.2rem)]">Three Homes, Each With a History</h2>
-          <p className="mt-5 text-ink-soft">
-            Every room opens to coffee and spice plantations — antiques, four-poster beds, and
-            complete quiet.
-          </p>
+        <Reveal>
+          <SectionHeading
+            align="center"
+            eyebrow={SECTIONS.stays.eyebrow}
+            title={SECTIONS.stays.title}
+            subtitle={SECTIONS.stays.subtitle}
+          />
         </Reveal>
 
         <div

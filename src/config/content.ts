@@ -49,22 +49,6 @@ export function roomImages(slug: string, name: string) {
   }));
 }
 
-/**
- * Estate gallery — a curated set of real estate photos from /public/images/.
- * Eight distinct shots (exteriors, interiors, dining, rooms) so the grid reads as
- * one cohesive showcase. Swap individual entries as new photography lands.
- */
-export const ESTATE_GALLERY: { src: string; alt: string; caption: string }[] = [
-  { src: "/images/estate-aerial-dusk.jpg", alt: "Aerial view of the estate at dusk", caption: "The Estate at Dusk" },
-  { src: "/images/heritage-interior-chandelier.jpg", alt: "Heritage interior with chandelier", caption: "Heritage Interiors" },
-  { src: "/images/verandah-lattice-detail.jpg", alt: "Latticework detail on the bungalow verandah", caption: "Verandah Lattice" },
-  { src: "/images/rosarium-fountain.jpg", alt: "The fountain at the Rosarium", caption: "The Rosarium Fountain" },
-  { src: "/images/antique-desk-detail.jpg", alt: "An antique writing desk in the bungalow", caption: "Antique Writing Desk" },
-  { src: "/images/bonfire-picnic.jpg", alt: "A bonfire gathering under the trees", caption: "Bonfire Evenings" },
-  { src: "/images/mangles-bungalow-dusk.jpg", alt: "Mangles Bungalow at dusk", caption: "Mangles Bungalow" },
-  { src: "/images/chef-plating.jpg", alt: "A chef plating a dish from the estate kitchen", caption: "From the Kitchen" },
-];
-
 /** Credibility slider (SAMPLE ratings/quotes — replace with real, consented ones). */
 export const CREDIBILITY: { source: string; rating?: string; quote: string; author: string }[] = [
   {
@@ -93,27 +77,4 @@ export const CREDIBILITY: { source: string; rating?: string; quote: string; auth
       "Our children fed the calves and chased the waterfall while we simply watched the hills.",
     author: "The Fernandes family",
   },
-];
-
-export interface Experience {
-  title: string;
-  text: string;
-  image: string;
-}
-
-/** Experiences "Beyond The Hallery" (off-property). SAMPLE copy — edit freely.
- *  Images reuse estate photos for now; swap for real experience photos. */
-export const EXPERIENCES_BEYOND: Experience[] = [
-  { title: "Abbey Falls", text: "A short drive to one of Coorg's most-loved waterfalls.", image: "/images/rosarium-aerial.jpg" },
-  { title: "Raja's Seat", text: "Sunset over the valleys from the old royal garden.", image: "/images/estate-aerial-dusk.jpg" },
-  { title: "Dubare Elephant Camp", text: "Meet the elephants by the Kaveri, a morning away.", image: "/images/coffee-plantation-trail.jpg" },
-  { title: "Madikeri Town", text: "The fort, the market, and Kodava culture, minutes away.", image: "/images/bungalow-entrance-dusk.jpg" },
-];
-
-/** Experiences "Within The Hallery" (on-property). SAMPLE copy — edit freely. */
-export const EXPERIENCES_WITHIN: Experience[] = [
-  { title: "Coffee & Spice Walk", text: "Guided through the estate, from crop to cup.", image: "/images/coffee-plantation-trail.jpg" },
-  { title: "Coffee Tasting", text: "Cup the estate's own beans with our team.", image: "/images/balcony-coffee.jpg" },
-  { title: "Dining at the Rosarium", text: "Coorgi & South Indian, among the roses.", image: "/images/rosarium-fountain.jpg" },
-  { title: "Bonfire Evenings", text: "Warm gatherings under the trees after dark.", image: "/images/bonfire-picnic.jpg" },
 ];
