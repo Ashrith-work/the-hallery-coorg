@@ -50,16 +50,16 @@ export function HeroHallery() {
           transition={
             prefersReducedMotion ? { duration: 0 } : { duration: 1.1, ease: "easeOut", delay: 0.2 }
           }
-          className="rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.55)_0%,rgba(0,0,0,0.3)_50%,transparent_75%)] px-10 py-8"
         >
+          {/* Transparent container only — no bg, padding-bg, border, shadow, or filter. */}
           <Image
-            src="/hero/hallery-logo.png"
+            src="/logo/hallery-logo-clean.png"
             alt="The Hallery by Old Kent"
-            width={420}
-            height={296}
+            width={400}
+            height={282}
             quality={90}
             priority
-            className="h-auto w-[190px] object-contain drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] md:w-[380px]"
+            className="h-auto w-[190px] object-contain md:w-[380px]"
           />
         </motion.div>
       </div>

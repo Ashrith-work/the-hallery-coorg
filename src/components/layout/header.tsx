@@ -40,9 +40,9 @@ export function Header() {
           aria-label="The Hallery by Old Kent — home"
           className="flex items-center"
         >
-          {/* White logo — reads over the dark hero and the dark scrolled header. */}
+          {/* Clean white logo — transparent container only (no bg/shadow/filter). */}
           <Image
-            src="/logo/hallery-white.png"
+            src="/logo/hallery-logo-clean.png"
             alt="The Hallery by Old Kent"
             width={200}
             height={141}
