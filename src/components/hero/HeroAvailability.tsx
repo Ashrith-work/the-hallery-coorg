@@ -55,7 +55,7 @@ export function HeroAvailability() {
   }
 
   return (
-    <div className="w-full max-w-4xl rounded-2xl border border-white/60 bg-white/85 p-4 shadow-xl backdrop-blur-md md:p-5">
+    <div className="w-full max-w-3xl rounded-2xl border border-white/60 bg-white/85 p-4 shadow-xl backdrop-blur-md md:p-5">
       {/* Fixed property — no destination field; the property is The Hallery, Coorg. */}
       <div className="mb-3 flex items-center gap-1.5 text-ink/70">
         <MapPin className="size-4 shrink-0 text-gold-ink" aria-hidden="true" />
