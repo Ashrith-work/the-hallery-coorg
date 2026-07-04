@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
-import { BOOK_NOW_URL, NAV_LINKS } from "@/config/site";
+import { NAV_LINKS } from "@/config/site";
+import { useBooking } from "@/context/booking-context";
 import { cn } from "@/lib/utils";
 
 /**
@@ -18,6 +19,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const prefersReducedMotion = useReducedMotion();
+  const { bookingUrl } = useBooking();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -77,7 +79,7 @@ export function Header() {
             </Link>
           ))}
           <a
-            href={BOOK_NOW_URL}
+            href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="border border-gold px-5 py-2.5 text-[0.8rem] uppercase tracking-[0.14em] text-gold transition-colors hover:bg-gold hover:text-ink"
@@ -114,7 +116,7 @@ export function Header() {
           </Link>
         ))}
         <a
-          href={BOOK_NOW_URL}
+          href={bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => setOpen(false)}

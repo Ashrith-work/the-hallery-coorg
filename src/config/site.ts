@@ -1,4 +1,3 @@
-import { BOOKING_URL } from "@/content/sections";
 import type { NavLink } from "@/types";
 
 /**
@@ -37,10 +36,6 @@ export const SITE = {
     "Kodagu",
   ],
 } as const;
-
-/** External booking engine. Single source of truth is BOOKING_URL (content/sections.ts);
- *  the header and room cards reuse it so every "Book Now" points to one place. */
-export const BOOK_NOW_URL = BOOKING_URL;
 
 /** Primary in-page navigation (matches the homepage section ids). */
 export const NAV_LINKS: readonly NavLink[] = [

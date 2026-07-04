@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { HeroActionBar } from "@/components/hero/HeroActionBar";
+import { HeroBookingBar } from "@/components/hero/HeroBookingBar";
 
 /**
  * Full-screen hero for "The Hallery by Old Kent".
@@ -68,8 +69,10 @@ export function HeroHallery() {
         </motion.div>
       </div>
 
-      {/* Hero action bar: full-width row near the bottom on mobile, pinned bottom-center on desktop */}
-      <div className="absolute inset-x-4 bottom-8 flex justify-center md:inset-x-0">
+      {/* Booking bar (dates + guests) above the contact action bar. Stacked and
+          centered; full-width row on mobile, pinned bottom-center on desktop. */}
+      <div className="absolute inset-x-4 bottom-8 flex flex-col items-center gap-3 md:inset-x-0">
+        <HeroBookingBar />
         <HeroActionBar />
       </div>
     </section>
