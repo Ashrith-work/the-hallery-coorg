@@ -4,14 +4,17 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { HeroActionBar } from "@/components/hero/HeroActionBar";
+import { HeroAvailability } from "@/components/hero/HeroAvailability";
 
 /**
  * Full-screen hero for "The Hallery by Old Kent".
  *
+ * Layout (top → bottom, a centered flex column so nothing overlaps and there is
+ * no layout shift): white crest logo → availability widget → contact row. The
+ * logo stays fully visible above the widget; content sits on z-10 over the image.
+ *
  * Assets (drop into /public/hero/):
  *   /hero/hallery-bg.jpg    — full-bleed misty mountain background
- *   /hero/hallery-logo.svg  — crest + building line-art + "by OLD KENT" lockup
- *                             (falls back to /hero/hallery-logo.png if the SVG is missing)
  */
 export function HeroHallery() {
   const prefersReducedMotion = useReducedMotion();
@@ -20,8 +23,7 @@ export function HeroHallery() {
     <section
       id="home"
       aria-label="Hero"
-      // Step 1: 75svh on mobile, unchanged (100svh) on desktop.
-      className="relative min-h-[75svh] w-full overflow-hidden md:min-h-[100svh]"
+      className="relative flex min-h-[88svh] w-full flex-col items-center justify-center overflow-hidden px-4 py-24 md:min-h-[100svh] md:px-6 md:py-28"
     >
       {/* Background image — decorative, sits behind all content */}
       <div className="absolute inset-0" aria-hidden="true">
@@ -36,15 +38,16 @@ export function HeroHallery() {
         />
       </div>
 
-      {/* Legibility overlay so the white crest logo + header read over the image */}
+      {/* Legibility overlay so the white crest logo reads over the image */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/45"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-black/55"
       />
 
-      {/* White crest logo — centered in the hero (nudged up on mobile so it clears the
-          action bar). Transparent container only: no bg, border, shadow, or filter. */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6 pb-[16svh] md:pb-0">
+      {/* Content column: logo → availability widget → contact row */}
+      <div className="relative z-10 flex w-full flex-col items-center gap-7 md:gap-9">
+        {/* White crest logo — kept fully visible above the widget. Transparent
+            container only (no bg/border); drop-shadow lifts it off the image. */}
         <motion.div
           // "Pop up" entrance: springs up small → overshoots slightly larger →
           // settles back to its original (scale 1) resting position.
@@ -63,14 +66,14 @@ export function HeroHallery() {
             height={282}
             quality={90}
             priority
-            className="h-auto w-[190px] object-contain md:w-[380px]"
+            className="h-auto w-[190px] object-contain drop-shadow-[0_2px_14px_rgba(0,0,0,0.45)] md:w-[380px]"
           />
         </motion.div>
-      </div>
 
-      {/* Hero action bar: raised above the fixed StickyBookBar (54px) so the two
-          don't crowd at the bottom of the hero. */}
-      <div className="absolute inset-x-4 bottom-20 flex justify-center md:inset-x-0">
+        {/* Availability search widget */}
+        <HeroAvailability />
+
+        {/* Contact shortcuts (Call / WhatsApp / Directions) */}
         <HeroActionBar />
       </div>
     </section>
