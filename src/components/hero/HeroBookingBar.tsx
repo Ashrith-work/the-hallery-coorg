@@ -35,9 +35,9 @@ export function HeroBookingBar() {
   const [guestsOpen, setGuestsOpen] = useState(false);
 
   return (
-    <div className="flex w-full max-w-sm flex-col gap-1.5 rounded-2xl border border-white/15 bg-ink/35 p-1.5 shadow-xl backdrop-blur-md md:w-auto md:max-w-none md:flex-row md:items-stretch md:gap-0">
+    <div className="grid w-full max-w-sm grid-cols-2 items-center gap-x-1.5 gap-y-1 rounded-2xl border border-white/15 bg-ink/35 p-1.5 shadow-xl backdrop-blur-md md:flex md:w-auto md:max-w-none md:items-stretch md:gap-0">
       {/* Check-in */}
-      <label className="flex flex-col gap-0.5 px-3 py-2 md:py-1.5">
+      <label className="flex min-w-0 flex-col gap-0.5 px-3 py-1.5">
         <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-cream/70">
           Check-in
         </span>
@@ -46,7 +46,7 @@ export function HeroBookingBar() {
           value={checkIn}
           min={minCheckIn}
           onChange={(e) => setCheckIn(e.target.value)}
-          className="bg-transparent text-sm text-cream [color-scheme:dark] focus:outline-none"
+          className="w-full min-w-0 bg-transparent text-sm text-cream [color-scheme:dark] focus:outline-none"
           aria-label="Check-in date"
         />
       </label>
@@ -54,7 +54,7 @@ export function HeroBookingBar() {
       <div className="hidden w-px self-stretch bg-white/10 md:block" aria-hidden="true" />
 
       {/* Check-out */}
-      <label className="flex flex-col gap-0.5 px-3 py-2 md:py-1.5">
+      <label className="flex min-w-0 flex-col gap-0.5 px-3 py-1.5">
         <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-cream/70">
           Check-out
         </span>
@@ -63,7 +63,7 @@ export function HeroBookingBar() {
           value={checkOut}
           min={minCheckOut}
           onChange={(e) => setCheckOut(e.target.value)}
-          className="bg-transparent text-sm text-cream [color-scheme:dark] focus:outline-none"
+          className="w-full min-w-0 bg-transparent text-sm text-cream [color-scheme:dark] focus:outline-none"
           aria-label="Check-out date"
         />
       </label>
@@ -71,7 +71,7 @@ export function HeroBookingBar() {
       <div className="hidden w-px self-stretch bg-white/10 md:block" aria-hidden="true" />
 
       {/* Guests */}
-      <div className="relative flex flex-col justify-center px-3 py-2 md:py-1.5">
+      <div className="relative flex min-w-0 flex-col justify-center px-3 py-1.5">
         <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-cream/70">
           Guests
         </span>

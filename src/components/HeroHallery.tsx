@@ -45,7 +45,7 @@ export function HeroHallery() {
 
       {/* White crest logo — centered in the hero (nudged up on mobile so it clears the
           action bar). Transparent container only: no bg, border, shadow, or filter. */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6 pb-[16svh] md:pb-0">
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6 pb-[24svh] md:pb-0">
         <motion.div
           // "Pop up" entrance: springs up small → overshoots slightly larger →
           // settles back to its original (scale 1) resting position.
