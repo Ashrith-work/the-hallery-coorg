@@ -62,9 +62,11 @@ export function HeroAvailability() {
         <span className="font-serif text-sm tracking-wide">The Hallery, Coorg</span>
       </div>
 
-      <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:items-end md:gap-4">
+      {/* md: force a single row (no wrap) down to 768px — the two date fields
+          grow/shrink to absorb slack while steppers + button stay fixed-width. */}
+      <div className="flex flex-col gap-3 md:flex-row md:flex-nowrap md:items-end md:gap-3">
         {/* Check-in */}
-        <label className="flex flex-col gap-1 md:min-w-[8.5rem] md:flex-1">
+        <label className="flex flex-col gap-1 md:min-w-[6rem] md:flex-1">
           <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink/60">
             Check-in
           </span>
@@ -74,12 +76,12 @@ export function HeroAvailability() {
             min={today}
             onChange={(e) => handleCheckIn(e.target.value)}
             aria-label="Check-in date"
-            className="rounded-lg border border-ink/15 bg-white/70 px-3 py-2 text-sm text-ink focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40"
+            className="w-full min-w-0 rounded-lg border border-ink/15 bg-white/70 px-3 py-2 text-sm text-ink focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40"
           />
         </label>
 
         {/* Check-out */}
-        <label className="flex flex-col gap-1 md:min-w-[8.5rem] md:flex-1">
+        <label className="flex flex-col gap-1 md:min-w-[6rem] md:flex-1">
           <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink/60">
             Check-out
           </span>
@@ -89,19 +91,24 @@ export function HeroAvailability() {
             min={checkIn ? addDays(checkIn, 1) : today}
             onChange={(e) => setCheckOut(e.target.value)}
             aria-label="Check-out date"
-            className="rounded-lg border border-ink/15 bg-white/70 px-3 py-2 text-sm text-ink focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40"
+            className="w-full min-w-0 rounded-lg border border-ink/15 bg-white/70 px-3 py-2 text-sm text-ink focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40"
           />
         </label>
 
         {/* Guests + Rooms */}
-        <div className="grid grid-cols-3 gap-2 md:flex md:gap-4">
+        <div className="grid grid-cols-3 gap-2 md:flex md:flex-none md:gap-2">
           <Stepper label="Adults" value={adults} min={1} max={16} onChange={setAdults} />
           <Stepper label="Children" value={children} min={0} max={12} onChange={setChildren} />
           <Stepper label="Rooms" value={rooms} min={1} max={10} onChange={setRooms} />
         </div>
 
         {/* Submit — opens the engine in a new tab (see NOTE above re: params). */}
-        <Button asChild variant="gold" size="sm" className="w-full font-serif md:ml-auto md:w-auto">
+        <Button
+          asChild
+          variant="gold"
+          size="sm"
+          className="w-full font-serif md:w-auto md:flex-none md:px-4"
+        >
           <a
             href={BOOKING_URL}
             target="_blank"
@@ -128,17 +135,17 @@ function Stepper({ label, value, min, max, onChange }: StepperProps) {
   return (
     <div className="flex flex-col gap-1">
       <span className="text-[11px] font-medium uppercase tracking-[0.14em] text-ink/60">{label}</span>
-      <div className="flex items-center justify-between gap-0.5 rounded-lg border border-ink/15 bg-white/70 px-1.5 py-1.5 md:gap-1 md:px-2">
+      <div className="flex items-center justify-between gap-0.5 rounded-lg border border-ink/15 bg-white/70 px-1.5 py-1.5">
         <button
           type="button"
           onClick={() => onChange(Math.max(min, value - 1))}
           disabled={value <= min}
           aria-label={`Decrease ${label.toLowerCase()}`}
-          className="flex size-5 items-center justify-center rounded-full border border-ink/25 text-ink transition-colors hover:border-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 disabled:opacity-30 md:size-6"
+          className="flex size-5 items-center justify-center rounded-full border border-ink/25 text-ink transition-colors hover:border-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 disabled:opacity-30"
         >
           <Minus className="size-3" aria-hidden="true" />
         </button>
-        <span className="min-w-[1rem] text-center text-sm tabular-nums text-ink md:min-w-[1.25rem]" aria-live="polite">
+        <span className="min-w-[1rem] text-center text-sm tabular-nums text-ink" aria-live="polite">
           {value}
         </span>
         <button
@@ -146,7 +153,7 @@ function Stepper({ label, value, min, max, onChange }: StepperProps) {
           onClick={() => onChange(Math.min(max, value + 1))}
           disabled={value >= max}
           aria-label={`Increase ${label.toLowerCase()}`}
-          className="flex size-5 items-center justify-center rounded-full border border-ink/25 text-ink transition-colors hover:border-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 disabled:opacity-30 md:size-6"
+          className="flex size-5 items-center justify-center rounded-full border border-ink/25 text-ink transition-colors hover:border-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 disabled:opacity-30"
         >
           <Plus className="size-3" aria-hidden="true" />
         </button>
