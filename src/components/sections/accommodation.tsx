@@ -12,7 +12,7 @@ import { SectionHeading } from "@/components/common/section-heading";
 import { Card } from "@/components/ui/card";
 import { SECTIONS } from "@/content/sections";
 import { STAYS } from "@/config/content";
-import { useBooking } from "@/context/booking-context";
+import { BOOK_NOW_URL } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -23,7 +23,6 @@ import { cn } from "@/lib/utils";
  */
 export function Accommodation() {
   const prefersReducedMotion = useReducedMotion();
-  const { bookingUrl } = useBooking();
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "center" },
     prefersReducedMotion
@@ -77,7 +76,7 @@ export function Accommodation() {
                     title={stay.name}
                     description={stay.description}
                     tags={stay.details}
-                    cta={{ label: "Book Now", href: bookingUrl, external: true }}
+                    cta={{ label: "Book Now", href: BOOK_NOW_URL, external: true }}
                     sizes="(max-width: 560px) 100vw, 28rem"
                   />
                 </div>

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
 import { HeroActionBar } from "@/components/hero/HeroActionBar";
-import { HeroBookingBar } from "@/components/hero/HeroBookingBar";
 
 /**
  * Full-screen hero for "The Hallery by Old Kent".
@@ -45,7 +44,7 @@ export function HeroHallery() {
 
       {/* White crest logo — centered in the hero (nudged up on mobile so it clears the
           action bar). Transparent container only: no bg, border, shadow, or filter. */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6 pb-[24svh] md:pb-0">
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center px-6 pb-[16svh] md:pb-0">
         <motion.div
           // "Pop up" entrance: springs up small → overshoots slightly larger →
           // settles back to its original (scale 1) resting position.
@@ -69,10 +68,8 @@ export function HeroHallery() {
         </motion.div>
       </div>
 
-      {/* Booking bar (dates + guests) above the contact action bar. Stacked and
-          centered; full-width row on mobile, pinned bottom-center on desktop. */}
-      <div className="absolute inset-x-4 bottom-8 flex flex-col items-center gap-3 md:inset-x-0">
-        <HeroBookingBar />
+      {/* Hero action bar: full-width row near the bottom on mobile, pinned bottom-center on desktop */}
+      <div className="absolute inset-x-4 bottom-8 flex justify-center md:inset-x-0">
         <HeroActionBar />
       </div>
     </section>

@@ -2,7 +2,6 @@
 
 import type { ReactNode } from "react";
 
-import { BookingProvider } from "@/context/booking-context";
 import { SmoothScrollProvider } from "@/context/smooth-scroll-context";
 import { MotionProvider } from "./motion-provider";
 
@@ -13,9 +12,7 @@ import { MotionProvider } from "./motion-provider";
 export function AppProviders({ children }: { children: ReactNode }) {
   return (
     <MotionProvider>
-      <BookingProvider>
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
-      </BookingProvider>
+      <SmoothScrollProvider>{children}</SmoothScrollProvider>
     </MotionProvider>
   );
 }
