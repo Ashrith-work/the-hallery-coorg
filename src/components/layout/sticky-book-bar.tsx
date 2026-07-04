@@ -6,9 +6,13 @@ import { BOOKING_URL } from "@/content/sections";
  * engine in a new tab, reusing the single shared BOOKING_URL (content/sections.ts)
  * so it never diverges from the hero "Book Now".
  *
- * The <body> carries pb-[64px] (see app/layout.tsx) so this bar never covers the
- * footer or the last section's content. If a floating WhatsApp/contact button is
- * ever added, give it a bottom offset > 64px so it clears this bar.
+ * The <body> carries pb of 64px + env(safe-area-inset-bottom) (see app/layout.tsx)
+ * so this bar never covers the footer or the last section's content. If a floating
+ * WhatsApp/contact button is ever added, give it a bottom offset clear of this bar.
+ *
+ * iOS: the gold extends into the home-indicator safe area (h = 54px + inset) with
+ * pb-[env(safe-area-inset-bottom)] keeping the label above the indicator. Requires
+ * viewport-fit=cover (set in layout.tsx) for the inset to be non-zero.
  */
 export function StickyBookBar() {
   return (
@@ -18,7 +22,7 @@ export function StickyBookBar() {
       rel="noopener noreferrer"
       role="button"
       aria-label="Book The Hallery"
-      className="fixed inset-x-0 bottom-0 z-40 flex h-[54px] items-center justify-center bg-gold text-center font-serif text-sm uppercase tracking-[0.28em] text-ink shadow-[0_-4px_20px_rgba(0,0,0,0.18)] transition-colors duration-300 ease-hallery hover:bg-gold-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ink"
+      className="fixed inset-x-0 bottom-0 z-40 flex h-[calc(54px+env(safe-area-inset-bottom))] items-center justify-center bg-gold pb-[env(safe-area-inset-bottom)] text-center font-serif text-sm uppercase tracking-[0.28em] text-ink shadow-[0_-4px_20px_rgba(0,0,0,0.18)] transition-colors duration-300 ease-hallery hover:bg-gold-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ink"
     >
       Book Hallery
     </a>

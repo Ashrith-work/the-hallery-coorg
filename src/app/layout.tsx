@@ -15,13 +15,17 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   colorScheme: "light",
+  // Extend under the notch/home indicator so the fixed StickyBookBar can use
+  // env(safe-area-inset-bottom) (0 without viewport-fit=cover on iOS).
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
-      {/* pb-[64px] keeps the fixed StickyBookBar (54px) from covering the footer. */}
-      <body className="min-h-dvh bg-background pb-[64px] font-sans text-foreground antialiased">
+      {/* Bottom padding keeps the fixed StickyBookBar (54px + iOS safe area) from
+          covering the footer. */}
+      <body className="min-h-dvh bg-background pb-[calc(64px+env(safe-area-inset-bottom))] font-sans text-foreground antialiased">
         <AppProviders>
           <a
             href="#main"
