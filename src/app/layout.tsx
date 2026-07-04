@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { AppProviders } from "@/components/providers/app-providers";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { StickyBookBar } from "@/components/layout/sticky-book-bar";
 import { serif, sans } from "@/lib/fonts";
 import { baseMetadata } from "@/lib/metadata";
 import "./globals.css";
@@ -19,7 +20,8 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
-      <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
+      {/* pb-[64px] keeps the fixed StickyBookBar (54px) from covering the footer. */}
+      <body className="min-h-dvh bg-background pb-[64px] font-sans text-foreground antialiased">
         <AppProviders>
           <a
             href="#main"
@@ -30,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main id="main">{children}</main>
           <Footer />
+          <StickyBookBar />
         </AppProviders>
       </body>
     </html>

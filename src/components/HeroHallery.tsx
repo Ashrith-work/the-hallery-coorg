@@ -68,8 +68,9 @@ export function HeroHallery() {
         </motion.div>
       </div>
 
-      {/* Hero action bar: full-width row near the bottom on mobile, pinned bottom-center on desktop */}
-      <div className="absolute inset-x-4 bottom-8 flex justify-center md:inset-x-0">
+      {/* Hero action bar: raised above the fixed StickyBookBar (54px) so the two
+          don't crowd at the bottom of the hero. */}
+      <div className="absolute inset-x-4 bottom-20 flex justify-center md:inset-x-0">
         <HeroActionBar />
       </div>
     </section>
